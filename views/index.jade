@@ -1,4 +1,3 @@
-
 - MAX_CATEOGIES_LISTED = 3
 - MAX_PROJECTS_PER_CATEGORY = 3
 
@@ -8,15 +7,25 @@ body
   include includes/header
   main(role="main")
 
-    if isUserExisting
 
+    if user.isExisting
       section.profile
         header.category.my-projects
-          // TODO: update link to "/@#{username}" profile page
+          // TODO: update link to "/@#{user.name}" profile page
           a.category-name(href="#")
             h2 Your Projects →
-            
-      include includes/your-projects
+          .recent-projects
+            // if signed in user
+              .avatar(background-image=user.avatarImage)
+            .avatar.anon-avatar
+            button.button-small.button-secondary New Project ✨
+            // if signed in user
+              // each project in recentProjects (max 3)
+            // else
+              // last project in recentProjects (1)
+              // and gh signup cta box
+    // TODO --|>
+    include includes/your-projects
 
     include includes/featured
 

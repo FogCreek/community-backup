@@ -18,8 +18,7 @@ self =
         categories: _.shuffle type1Categories
         shuffledCategories: _.shuffle type1Categories
         projects: _.shuffle model.projects()
-        isUserExisting: user.isExisting()
-        isUserSignedIn: user.isSignedIn()
+        user: user
 
   categories: (request, response) ->
     if request.get('Content-Type') is 'application/json'
@@ -28,9 +27,7 @@ self =
       response.render 'categories.jade',
         title: 'Gomix Community Categories'
         categories: model.categories()
-        isUserExisting: user.isExisting()
-        isUserSignedIn: user.isSignedIn()
-
+        user: user
   
   category: (request, response, category) ->
     projects = utils.projectsInCategory category.id
@@ -43,8 +40,7 @@ self =
         category: category
         categories: model.categories()
         projects: projects
-        isUserExisting: user.isExisting()
-        isUserSignedIn: user.isSignedIn()
+        user: user
   
   search: (request, response, query) ->
     results = utils.searchProjects query
@@ -56,9 +52,8 @@ self =
         results: results
         query: query
         categories: model.categories()
-        isUserExisting: user.isExisting()
-        isUserSignedIn: user.isSignedIn()
-  
+        user: user
+        
   pageNotFound: (response) ->
     response.status 404
     response.render '404.jade',

@@ -6,7 +6,7 @@ header(role="banner")
   .header-info
     a(href="/community")
       img.logo(src=bird)
-    if !isUserExisting
+    if !user.isExisting
       h1.headline
         a(href="/community")
           span Gomix
@@ -25,4 +25,5 @@ header(role="banner")
     a(href="https://github.com/login/oauth/authorize?client_id=b4cb743ed07e20abf0b2&scope=user:email")
       button.button-small Sign in
         span.emoji.octocat
-    //button.button-small Start Coding
+    // TODO replace w user avatar and link to profile page if signed in
+    

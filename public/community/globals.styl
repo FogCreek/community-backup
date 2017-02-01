@@ -6,6 +6,8 @@ secondary = #C3C3C3
 tertiary = #9B9B9B
 secondary-background = #F5F5F5
 secondary-background-active = #E8E8E8
+text-on-secondary-background = #727272
+line-on-secondary-background = #B8B8B8
 input-border = #CCC
 input-border-focused = #A2D7FF
 marketing = #FFD1C6
@@ -15,6 +17,7 @@ link = #3652D3
 section-line = #E5E5E5
 warning-background = #ffced5
 beta = #fcf3b0
+
 
 heart = "https://s3.amazonaws.com/hyperweb-editor-assets/us-east-1%3Ab0bac0a2-1470-4ff8-b72d-acc002ba0a16%2Fheart.svg"
 showApp = "https://s3.amazonaws.com/hyperweb-editor-assets/us-east-1%3Ab0bac0a2-1470-4ff8-b72d-acc002ba0a16%2Fshow-app.svg"
@@ -29,9 +32,7 @@ hugeViewport = 1080px
   box-sizing: border-box
 
 body
-  // background-color: #fffafa
   font-family: sansserif
-  //padding: 25px 5%
   padding: 1rem 5%
   color: primary
   margin-left: auto
@@ -126,10 +127,24 @@ button
     background-color: cta
     box-shadow: none
 
+.button-secondary
+  border-width: 1px
+  font-size: 11px
+  padding: 2px 4px
+  padding-right: 5px
+  border-color: line-on-secondary-background
+  color: text-on-secondary-background
+  &:hover
+    color: primary
+    background-color: secondary-background-active
+  &:active
+    border-color: primary
+
 .button-small
   font-size: 12px
   padding: 3px 10px
 
+  
 input
   border-color: input-border
   width: 200px
