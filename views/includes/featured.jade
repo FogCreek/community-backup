@@ -1,0 +1,29 @@
+- defaultAvatar = "https://cdn.gomix.com/0a15009e-17ee-4915-bc29-5ba03bb09517%2Favatar.svg"
+
+section.features(role="navigation")
+  h2 Featured Apps
+  ul
+    each feature in featured
+      - remix = "https://gomix.com/#!/remix/" + feature.name + "/" + feature.id
+        li
+          .featured-container(data-project-id=feature.id data-project-name=feature.url)
+            img.featured(width=30 height=30 src=feature.img)=project.name
+
+            p.project-name= feature.name
+          if feature.users
+            .users
+              each user in feature.users
+                .user(title=user.name data-tooltip=user.name data-tooltip-left=true)
+                  img(width=30 height=30 src=user.avatar)
+          else
+            .users
+              .user(title="Gomix team" data-tooltip="Gomix team" data-tooltip-left=true)
+                img(width=30 height=30 src=defaultAvatar)
+
+          //- randomBadge = Math.random()
+          //if randomBadge < 0.5
+          //  img.badge(src=newBadge)
+          //else
+          //  img.badge(src=updatedBadge)
+
+// a.categories-link.hidden(href="/categories") See all →
