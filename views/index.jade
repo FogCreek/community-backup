@@ -1,5 +1,4 @@
 
-
 - MAX_CATEOGIES_LISTED = 3
 - MAX_PROJECTS_PER_CATEGORY = 3
 
@@ -8,6 +7,16 @@ include includes/head
 body
   include includes/header
   main(role="main")
+
+    if isUserExisting
+
+      section.profile
+        header.category.my-projects
+          // TODO: update link to "/@#{username}" profile page
+          a.category-name(href="#")
+            h2 Your Projects →
+            
+      include includes/your-projects
 
     include includes/featured
 

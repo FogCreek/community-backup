@@ -2,8 +2,6 @@ model = require './model'
 utils = require './utils'
 user = require './user'
 
-console.log user
-
 _ = require 'underscore'
 
 self = 
@@ -30,7 +28,9 @@ self =
       response.render 'categories.jade',
         title: 'Gomix Community Categories'
         categories: model.categories()
-        # searchSuggestions: SEARCH_SUGGESTIONS
+        isUserExisting: user.isExisting()
+        isUserSignedIn: user.isSignedIn()
+
   
   category: (request, response, category) ->
     projects = utils.projectsInCategory category.id
@@ -43,7 +43,8 @@ self =
         category: category
         categories: model.categories()
         projects: projects
-        # searchSuggestions: SEARCH_SUGGESTIONS
+        isUserExisting: user.isExisting()
+        isUserSignedIn: user.isSignedIn()
   
   search: (request, response, query) ->
     results = utils.searchProjects query
@@ -55,7 +56,8 @@ self =
         results: results
         query: query
         categories: model.categories()
-        # searchSuggestions: SEARCH_SUGGESTIONS
+        isUserExisting: user.isExisting()
+        isUserSignedIn: user.isSignedIn()
   
   pageNotFound: (response) ->
     response.status 404
