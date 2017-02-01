@@ -11,8 +11,9 @@ if user.isExisting
           .avatar(background-image=user.avatarImage)
 
         // link to profile page
-        a(href="#")
-          .avatar.anon-avatar
+        .avatar-container
+          a(href="#")
+            .avatar.anon-avatar
         // TODO: a way to link to editor that makes a new project?
         a(href="#")
           button.button-small.button-secondary New Project ✨
