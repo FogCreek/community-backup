@@ -19,8 +19,7 @@
 		"jade": "^1.11.0",
 		"stylus": "^0.54.5",
 		"stylish": "^1.0.0",
-		"airtable": "^0.4.3",
-		"randomcolor": "^0.4.4"
+		"airtable": "^0.4.3"
 	},
 	"engines": {
 		"node": "4.4.5"

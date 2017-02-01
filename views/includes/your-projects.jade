@@ -1,1 +1,24 @@
-p sup
+if user.isExisting
+  section.profile
+    // TODO: update link to "/@#{user.name}" profile page
+    a.category-name(href="#")
+      h2 Your Projects →
+
+    .recent-projects
+
+      header.profile-info
+        // if signed in user
+          .avatar(background-image=user.avatarImage)
+
+        // link to profile page
+        a(href="#")
+          .avatar.anon-avatar
+        // TODO: a way to link to editor that makes a new project?
+        a(href="#")
+          button.button-small.button-secondary New Project ✨
+
+        // if signed in user
+          // each project in recentProjects (max 3)
+        // else
+          // last project in recentProjects (1)
+          // and gh signup cta box
