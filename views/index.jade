@@ -1,0 +1,42 @@
+
+
+- MAX_CATEOGIES_LISTED = 3
+- MAX_PROJECTS_PER_CATEGORY = 3
+
+include includes/head
+
+body
+  include includes/header
+  main(role="main")
+
+    include includes/featured
+
+    each category, index in shuffledCategories
+      if index < MAX_CATEOGIES_LISTED
+
+        article.projects(style="background-color: #{category.background}")
+          header.category
+            a.category-name(href="#{category.url}")
+              h2=category.name
+                span.arrow →
+            span.category-image-container
+              a.category-image(href="#{category.url}")
+                img(src=category.img)
+            p.category-description=category.description
+
+          ul.projects-container
+            - matchingProjects = 0
+            each project in projects
+              if project.categoryId == category.id
+                if matchingProjects < MAX_PROJECTS_PER_CATEGORY
+                  include includes/project
+                  - matchingProjects ++
+
+    include includes/categories-list
+
+    include includes/by-fogcreek
+
+  include includes/footer
+  include includes/overlay
+  include includes/video-overlay
+  include includes/scripts
